@@ -59,9 +59,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// dont authenticate this particular request
 		.authorizeRequests()
 		.antMatchers("/authenticate").permitAll()
-		.antMatchers("/user").permitAll().
 		// all other requests need to be authenticated
-		anyRequest().authenticated().and().
+		.anyRequest().authenticated().and().
 		// make sure we use stateless session; session won't be used to
 		// store user's state.
 		exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
@@ -70,3 +69,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 }
+//"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb290IiwiZXhwIjoxNTkzODc2MjM3LCJpYXQiOjE1OTM4NTgyMzd9.Z3rczXfgcT-zcqun61LXd4UdHWrJE4es9-INmKM466vqTAE6e0JX2M9asjkSBB0sKtH-Wg4qv9OeF-3rCPLA7Q"

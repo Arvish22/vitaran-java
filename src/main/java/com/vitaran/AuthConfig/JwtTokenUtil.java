@@ -1,5 +1,6 @@
 package com.vitaran.AuthConfig;
 
+import java.io.Console;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
@@ -23,8 +24,10 @@ public class JwtTokenUtil implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+	
 	@Value("${jwt.secret}")
 	private String secret;
+	
 	//retrieve username from jwt token
 	public String getUsernameFromToken(String token) {
 	return getClaimFromToken(token, Claims::getSubject);
@@ -34,11 +37,14 @@ public class JwtTokenUtil implements Serializable{
 	return getClaimFromToken(token, Claims::getExpiration);
 	}
 	public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
+		System.err.println(token);
 	final Claims claims = getAllClaimsFromToken(token);
+	System.err.println(claims.getSubject());
 	return claimsResolver.apply(claims);
 	}
 	    //for retrieveing any information from token we will need the secret key
 	private Claims getAllClaimsFromToken(String token) {
+		System.out.println(secret);
 	return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
 	}
 	//check if the token has expired
