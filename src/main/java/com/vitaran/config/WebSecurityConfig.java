@@ -70,4 +70,3 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 }
-//"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb290IiwiZXhwIjoxNTkzODc2MjM3LCJpYXQiOjE1OTM4NTgyMzd9.Z3rczXfgcT-zcqun61LXd4UdHWrJE4es9-INmKM466vqTAE6e0JX2M9asjkSBB0sKtH-Wg4qv9OeF-3rCPLA7Q"
