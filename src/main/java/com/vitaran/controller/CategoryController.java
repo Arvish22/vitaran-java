@@ -39,7 +39,7 @@ public class CategoryController {
 	}
 	
 	@PostMapping("/categories")
-	public List<Category> saveAll(List<Category> category){
+	public List<Category> saveAll(@RequestBody List<Category> category){
 		return categoryService.saveAll(category);
 	}
 }
