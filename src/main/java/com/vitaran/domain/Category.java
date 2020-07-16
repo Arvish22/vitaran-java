@@ -13,6 +13,8 @@ public class Category {
 	private Long id;
 	
 	private String type;
+	
+	
 
 	public Long getId() {
 		return id;
