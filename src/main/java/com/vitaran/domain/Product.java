@@ -19,6 +19,6 @@ public class Product {
 	private String brand;
 	
 	@ManyToOne
-    @JoinColumn(name = "store_id", referencedColumnName = "id")
-    private Store store;
+	@JoinColumn(name = "product_category_id", referencedColumnName = "id")
+	private ProductCategory proCategory;
 }

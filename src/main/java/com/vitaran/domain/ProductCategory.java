@@ -1,6 +1,5 @@
 package com.vitaran.domain;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,22 +11,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Store implements Serializable{
+public class ProductCategory {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16543L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
-	private String name;
-	private Address address;
+	private Long id;
+	
+	private String type;
 	
 	@OneToMany
-	private List<ProductCategory> productsCategories;
+    private List<Product> products;
 	
 	@ManyToOne
-	@JoinColumn(name = "category_id", referencedColumnName = "id")
-	private Category category;
+    @JoinColumn(name = "store_id", referencedColumnName = "id")
+    private Store store;
 }
