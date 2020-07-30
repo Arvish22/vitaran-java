@@ -1,14 +1,9 @@
 package com.vitaran.domain;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class ProductCategory {
@@ -19,10 +14,20 @@ public class ProductCategory {
 	
 	private String type;
 	
-	@OneToMany
-    private List<Product> products;
-	
-	@ManyToOne
-    @JoinColumn(name = "store_id", referencedColumnName = "id")
-    private Store store;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

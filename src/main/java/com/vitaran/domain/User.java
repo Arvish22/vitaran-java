@@ -30,9 +30,6 @@ public class User implements UserDetails{
 	String emailId;
 	String phone;
 	
-	@ManyToOne
-	Address address;
-	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
@@ -119,13 +116,5 @@ public class User implements UserDetails{
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
 	}
 }
