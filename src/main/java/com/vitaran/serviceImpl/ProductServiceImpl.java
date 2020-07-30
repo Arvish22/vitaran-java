@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vitaran.domain.Product;
+import com.vitaran.domain.Store;
 import com.vitaran.repository.ProductRepository;
 import com.vitaran.service.ProductService;
 
@@ -22,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	public List<Product> getProductByName(String name) {
-		return repository.findByName(name);
+		return null;//repository.findByName(name);
 	}
 
 	@Override
@@ -32,12 +33,18 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getProducts() {
-		return repository.findAll();
+		return (List<Product>) repository.findAll();
 	}
 
 	@Override
 	public List<Product> saveAllProduct(List<Product> products) {
-		return repository.saveAll(products);
+		return (List<Product>) repository.saveAll(products);
+	}
+
+	@Override
+	public List<Product> findByStore(Store store) {
+		// TODO Auto-generated method stub
+		return repository.findByStore(store);
 	}
 
 }

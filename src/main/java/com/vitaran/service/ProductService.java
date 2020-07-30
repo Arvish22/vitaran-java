@@ -3,7 +3,10 @@ package com.vitaran.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.RequestBody;
+
 import com.vitaran.domain.Product;
+import com.vitaran.domain.Store;
 
 public interface ProductService {
 	
@@ -16,4 +19,6 @@ public interface ProductService {
 	public List<Product> saveAllProduct(List<Product> products);
 	
 	public List<Product> getProductByName(String name);
+	
+	public List<Product> findByStore(Store store);
 }
